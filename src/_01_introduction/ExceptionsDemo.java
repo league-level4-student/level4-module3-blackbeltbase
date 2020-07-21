@@ -8,6 +8,12 @@ public class ExceptionsDemo {
 		// You can make your own exceptions by making a class that 
 		// extends Exception
 		
+		try {
+			testMethod1(3);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("ran");
+		}
 		// 1. Call testMethod1 with a value less than 5.
 		//    It should give you an error.
 		//    This is because testMethod1 can potentially throw
@@ -22,6 +28,12 @@ public class ExceptionsDemo {
 		//    You can use the Exception class's printStackTrace() method
 		//    to print a list of methods that are currently in scope.
 		
+		try {
+			testMethod1(8);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("ran2");
+		}
 		// 3. Create a new class called CustomException that extends Exception.
 		//    Add a void method called terminate that simply calls System.exit(0);
 		
@@ -30,6 +42,14 @@ public class ExceptionsDemo {
 		//    CustomException object.
 		//    This demonstrates how custom exception classes can be used to
 		//    handle exceptions in unlimited ways.
+		try {
+			testMethod2(-3);
+		} catch (CustomExeption e) {
+			// TODO Auto-generated catch block
+			 e.terminate();
+			System.out.println("ran");
+		}
+		
 	}
 	
 	public static void testMethod1(int x) throws Exception {
@@ -40,4 +60,9 @@ public class ExceptionsDemo {
 	
 	// 4. Create a static void method called testMethod2(int x) that throws
 	//    a CustomException if x is negative.
+	static void testMethod2(int x) throws CustomExeption{
+		if(x<0) {
+			throw new CustomExeption();
+		}
+	}
 }
