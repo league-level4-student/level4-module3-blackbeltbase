@@ -32,14 +32,21 @@ class ExceptionsTest {
 	//3. Complete the JUnit test method to test the divide method.
 	@Test
 	public void testDivideByZeroException() {
+		System.out.println("test Divide by 0");
 		double first = 7.8;
 		double second = 0.0;
+		double third = 5.2;
+		double y = 0.0;
+		ExceptionMethods runner = new ExceptionMethods();
 		try {
-			double q = new ExceptionMethods.divide(first,second);
-			fail("IllegalArgumentException not thrown")
-		}catch(IndexOutOfBoundsException e) {
+			y = runner.divide(first, third);
+			assertEquals(y,first/third);
+			double q = runner.divide(first,second);
+			System.out.println(q);
+			fail("IllegalArgumentException not thrown");
+		}catch(IllegalArgumentException e) {
 			e.printStackTrace();
-			
+			assertEquals(y,first/third);
 		}
 	}
 	
@@ -50,7 +57,15 @@ class ExceptionsTest {
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
 	public void testReverseString() {
-		
+		ExceptionMethods runner = new ExceptionMethods();
+		System.out.println("testing reverse string");
+		try {
+			runner.reverseString("WHy");
+			runner.reverseString("");
+			fail("IllegalArgumentException not thrown");
+		}catch(IllegalStateException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
